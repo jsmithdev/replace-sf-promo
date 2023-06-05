@@ -12,6 +12,8 @@ This project is a fork of: <https://github.com/jsmithdev/app-layout/>
 
 ## 👩‍💻 Development
 
+> I see all or most customizations happening to the `app` lwc located at [src/modules/main/app/app.html](src/modules/main/app/app.html)
+
 `npm i` to install dependencies
 
 `npm start` to have webpack serve the app and live reload to see your changes locally/automatically
