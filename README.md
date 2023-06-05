@@ -1,6 +1,6 @@
 # 📱 sf-login-promo-replacement
 
-An LWC page/site generator to assist replacing Salesforce promo on login
+An LWC page/static site generator to assist replacing Salesforce promo on login
 
 See more about updating login page here: <https://help.salesforce.com/s/articleView?id=sf.domain_name_login_branding.htm&type=5>
 
