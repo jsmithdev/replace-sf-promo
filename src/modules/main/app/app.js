@@ -1,79 +1,45 @@
-import { track, LightningElement } from 'lwc';
+import { LightningElement } from "lwc";
 
 export default class App extends LightningElement {
+  things = ["home"];
 
-	things = [
-		'home',
-		'settings',
-	]
+  currentView = "home";
+  offline = false;
+  hideViews = false;
+  loading = false;
 
-	currentView = 'home';
-	offline = false;
-	hideViews = false;
-	loading = false;
-	
-	get toaster(){
-		return this.template.querySelector('ui-toast')
-	}
+  async connectedCallback() {
+    if (this._init) {
+      return;
+    }
 
-	/**
-	 * 
-	 * @param {CustomEvent} e - event who's detail is used to toast (falsey will close)
-	 * @returns 
-	 */
-	toast(e){
+    this._init = true;
 
-		if(!e) return this.toaster.close();
+    console.log("App Ready");
+  }
 
-		this.toaster.open(e);
-	}
+  navigate(event) {
+    const { name } = event.detail;
 
-	async connectedCallback() {
-		if (this._init) {
-			return;
-		}
+    if (name !== this.currentView) {
+      this.currentView = name;
+    }
+  }
 
-		this._init = true;
+  setListeners() {
+    window.addEventListener("load", () => window.history.pushState({}, ""));
 
-		console.log('App Ready');
-	}
+    window.addEventListener("popstate", () => window.history.pushState({}, ""));
 
-	navigate(event) {
+    window.addEventListener("online", () => this.isOnline());
 
-		const { name } = event.detail;
+    window.addEventListener("offline", () => this.isOffline());
+  }
 
-		if (name !== this.currentView) {
-			this.currentView = name;
-		}
-	}
-
-	setListeners() {
-
-		window.addEventListener('load', () => window.history.pushState({}, ''));
-
-		window.addEventListener('popstate', () => window.history.pushState({}, ''));
-
-		window.addEventListener('online', () => this.isOnline());
-
-		window.addEventListener('offline', () => this.isOffline());
-	}
-
-	isOnline() {
-		this.offline = false;
-	}
-	isOffline() {
-		this.offline = true;
-	}
-
-	reload(hard) {
-		if (hard) {
-			const form = document.createElement('form');
-			form.method = 'GET';
-			form.action = window.location.href;
-			document.body.appendChild(form);
-			form.submit();
-		} else {
-			window.location.reload();
-		}
-	}
+  isOnline() {
+    this.offline = false;
+  }
+  isOffline() {
+    this.offline = true;
+  }
 }

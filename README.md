@@ -1,8 +1,10 @@
-# 📱 app-layout
+# 📱 sf-login-promo-replacement
 
-An app layout for LWC apps consisting of app bar, menu, drawer, etc
+An LWC page/site generator to assist replacing Salesforce promo on login
 
-Demo: [https://jsmithdev.github.io/app-layout/](https://jsmithdev.github.io/app-layout/)
+See more about updating login page here: <https://help.salesforce.com/s/articleView?id=sf.domain_name_login_branding.htm&type=5>
+
+This project is a fork of: <https://github.com/jsmithdev/app-layout/>
 
 ## 👩‍💻 Development
 
@@ -16,15 +18,8 @@ Demo: [https://jsmithdev.github.io/app-layout/](https://jsmithdev.github.io/app-
 
 ## 🚧 WIP
 
-Still building but at some point this may turn into one or more of the following:
+Feel free to use but I'm still building out the components and documentation
 
-- just make the repo a template
-- incorporate into my lwc-app yeoman generator
-- make importable via npm publish
-- break every component out and this be a mono repo
+---
 
-> That's in order of lift therefore probability 😼
-
-## 💡 About
-
-[Lightning Web Components (LWC)](https://lwc.dev) is an _"enterprise-grade, open source, standards-based web component framework"_
+Hacked w/ haste by [Jamie Smith](https://jsmith.dev)
